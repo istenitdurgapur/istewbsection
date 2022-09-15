@@ -1,0 +1,19 @@
+  body
+  {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    overflow-x: hidden;
+  }
+
+  footer{
+    margin-top:60px;
+    background-size:100% 100%;
+    background-size:cover;
+    display: inline-block;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalab=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Package Imports-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- Import Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--File Imports-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base_css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loader_css.css' %}">
+
+    <!-- Favicon import -->
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'image/favicon.ico' %}">
+    
+    {% block css %} {% endblock %} 
+    {% block js %} {% endblock js %}
+
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+
+</head>
+
+<body onload="loaderfunction()">
+    <div id="loader">
+        <div id="loading">
+            <div class="loading-screen">
+                <div class="loading-animation">
+                    <img src="{% static 'image/Loader.png' %}" alt="" class="logo">
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark" style="background-color: #111a2d; margin-bottom: 0%;">
+        <div class="container">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home:home' %}">
+                {% load static %}
+                <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px; padding-bottom: 4px; margin-left: 5px;" alt="logo">
+                <strong>ISTE</strong> West Bengal Section
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav" style="white-space:nowrap; text-align: center;">
+                <li class="nav-item">
+                    <a class="nav-link m-2" href="http://www.isteonline.in" target="_blank">ISTE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block home_active %}{% endblock %}" href="{% url 'home:home' %}">Home</a>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block about_us %}{% endblock %}" href="{% url 'home:about_us' %}">About Us</a>
+                </li>  
+                <!-- <li class="nav-item dropdown m-2">
+                    <a class="nav-link dropdown-toggle tab" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+                    <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d;">
+                      <li><a class="dropdown-item" href="#">Link</a></li>
+                      <li><a class="dropdown-item" href="#">Another link</a></li>
+                      <li><a class="dropdown-item" href="#">A third link</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block events %}{% endblock %}" href="#">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block gallery %}{% endblock %}" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block contact %}{% endblock %}" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+    {% block content %} {% endblock %}
+
+
+    <footer class="section footer-classic context-dark" style="background-color: #111a2d;">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-md-4 col-xl-4" style="text-align: center;">
+                    <h4 style="color: white;">Indian Society for Technical Education</h4>
+                    <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px; padding-bottom: 4px; margin-left: 5px;" alt="logo">
+                    <h4>West Bengal Section</h4>
+                </div>
+                <div class="col-md-5 col-xl-5" style="text-align: center;">
+                    <h3 style="color: white;">Contact Us</h3>
+                    <p>ISTE West Bengal Section<br>
+                        C/o. FOSET, 15N, Nelli Sengupta Sarani,<br>
+                        New CMC Building (5th Floor), <br> Kolkata, West Bengal 700087.<br>
+                        Email: <a href="mailto:iste.wbsection@gmail.com">iste.wbsection@gmail.com</a></p>
+                </div>
+                <div class="col-md-3 col-xl-3" style="text-align: center;">
+                    <h3 style="color: white;">Useful Links</h3>
+                    <ul>
+                        <li><a  style="text-decoration:none" href="http://www.isteonline.in">ISTE</a></li>
+                        <li><a  style="text-decoration:none" href="{% url 'home:about_us' %}">About Us</a></li>
+                        <li><a   style="text-decoration:none" href="{% url 'home:home'%}">Contact Us</a></li>
+                        <li><a  style="text-decoration:none" href="{% url 'home:home'%}">Events</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <div style="text-align:center">
+                    <!-- Credits -->
+                    <strong>Developed by <a  style="text-decoration:none" href="https://www.istenitdgp.com/"  target="_blank">ISTE Students' Chapter NIT Durgapur</a></strong>
+                    <strong> | Maintained by <a  style="text-decoration:none" href="{% url 'home:home' %}">ISTE WB Section</a></strong>
+                        
+                    <!-- Rights-->
+                    <p class="rights"><span>©  </span>
+                        <span class="copyright-year">
+                            <script>document.write(new Date().getFullYear())</script>  
+                        </span>
+                        <span>ISTE WB Section</span>
+                        <span>. </span>
+                        <span>All Rights Reserved.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/loader.js' %}"></script>
+</body>
+</html>
