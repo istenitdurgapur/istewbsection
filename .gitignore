@@ -78,3 +78,16 @@ home/migrations/
 
 # Media files
 media/
+myenv/pyvenv.cfg
+myenv/Scripts/activate
+myenv/Scripts/activate.bat
+myenv/Scripts/Activate.ps1
+myenv/Scripts/deactivate.bat
+myenv/Scripts/django-admin.exe
+myenv/Scripts/pip.exe
+myenv/Scripts/pip3.9.exe
+myenv/Scripts/pip3.exe
+myenv/Scripts/python.exe
+myenv/Scripts/pythonw.exe
+myenv/Scripts/sqlformat.exe
+website/home/migrations/0001_initial.py
