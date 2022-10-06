@@ -18,6 +18,9 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base_css.css' %}">
     <link rel="stylesheet" href="{% static 'css/loader_css.css' %}">
+        <!-- galley css -->
+        <link rel="stylesheet" href="{% static 'css/gallery_css.css' %}">
+        <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
 
     <!-- Favicon import -->
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'image/favicon.ico' %}">
@@ -78,7 +81,7 @@
                     <a class="nav-link m-2 {% block events %}{% endblock %}" href="#">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link m-2 {% block gallery %}{% endblock %}" href="#">Gallery</a>
+                    <a class="nav-link m-2 {% block gallery %}{% endblock %} " href="{% url 'home:gallery' %}">Gallery</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link m-2 {% block contact %}{% endblock %}" href="#">Contact</a>
