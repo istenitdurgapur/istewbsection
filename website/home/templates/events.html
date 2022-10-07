@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} ISTE WB Section {% endblock title %}
+
+{% block events %}active{% endblock %}
+
+{% block content %} {% load widget_tweaks %}
+
+<div class="container border flex mt-4">
+    <table class="container">
+        <tr>
+            <th>Event</th>
+            <th>Date</th> 
+            <th>Details</th>
+        </tr>
+            {% for column in data %}
+            <tr>
+                <td>{{column.EventName}}</td>
+                <td>{{column.eventDate}}</td>
+                <td><a download href="http://127.0.0.1:8000/media/{{column.file1}}">download pdf file</a></td>
+            </tr>
+            {% endfor %}
+    
+     </table>
+</div>
+
+
+{% endblock %}
