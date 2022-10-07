@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import models
 
 def home(request):
     return render(request, 'home.html',{})
@@ -8,3 +9,7 @@ def about(request):
 
 def gallery(request):
     return render(request, 'gallery.html',{}) 
+
+def events(request):
+    events_data = models.Event.objects.all().values()
+    return render(request, 'events.html',{'data': events_data}) 

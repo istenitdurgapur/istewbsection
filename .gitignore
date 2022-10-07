@@ -91,3 +91,6 @@ myenv/Scripts/python.exe
 myenv/Scripts/pythonw.exe
 myenv/Scripts/sqlformat.exe
 website/home/migrations/0001_initial.py
+website/home/migrations/0002_alter_event_image1_alter_event_image2_and_more.py
+website/home/migrations/0003_alter_event_link1_alter_event_link2_and_more.py
+website/home/migrations/0004_alter_event_image1_alter_event_image2_and_more.py
