@@ -67,7 +67,7 @@
                     <a class="nav-link m-2 {% block home_active %}{% endblock %}" href="{% url 'home:home' %}">Home</a>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link m-2 {% block about_us %}{% endblock %}" href="{% url 'home:about_us' %}">About Us</a>
+                    <a class="nav-link m-2 {% block about-us %}{% endblock %}" href="{% url 'home:about-us' %}">About Us</a>
                 </li>  
                 <!-- <li class="nav-item dropdown m-2">
                     <a class="nav-link dropdown-toggle tab" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
@@ -84,7 +84,7 @@
                     <a class="nav-link m-2 {% block gallery %}{% endblock %} " href="{% url 'home:gallery' %}">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link m-2 {% block contact %}{% endblock %}" href="#">Contact</a>
+                    <a class="nav-link m-2 {% block contact %}{% endblock %}" href="{% url 'home:contact' %}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -113,7 +113,7 @@
                     <h3 style="color: white;">Useful Links</h3>
                     <ul  style="color: white;list-style-type:none;">
                         <li><a  style="text-decoration:none" href="http://www.isteonline.in">ISTE</a></li>
-                        <li><a  style="text-decoration:none" href="{% url 'home:about_us' %}">About Us</a></li>
+                        <li><a  style="text-decoration:none" href="{% url 'home:about-us' %}">About Us</a></li>
                         <li><a   style="text-decoration:none" href="{% url 'home:home'%}">Contact Us</a></li>
                         <li><a  style="text-decoration:none" href="{% url 'home:home'%}">Events</a></li>
                     </ul>
