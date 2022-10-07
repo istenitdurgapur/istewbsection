@@ -1,16 +1,22 @@
-  body
-  {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    overflow-x: hidden;
-    min-height: 100vh;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
 
-  footer{
-    left: 0;
-    position: absolute;
-    right: 0;
-    bottom: -50px;
-
-  }
+footer {
+  bottom: -50px;
+  margin-top: 60px;
+  background-size: 100% 100%;
+  background-size: cover;
+  display: inline-block;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

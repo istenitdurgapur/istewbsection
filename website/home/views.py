@@ -13,3 +13,6 @@ def gallery(request):
 def events(request):
     events_data = models.Event.objects.all().values()
     return render(request, 'events.html',{'data': events_data}) 
+
+def contact(request):
+    return render(request, 'contact-us.html',{})
