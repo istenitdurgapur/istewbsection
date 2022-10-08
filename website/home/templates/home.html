@@ -22,7 +22,7 @@
                         <p class="card-text">
                             Text Here
                         </p>
-                        <a href="#">Know More...</a>
+                        {% comment %} <a href="#">Know More...</a> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                             Kolkata, West Bengal
                             <br>
                         </p>
-                        <a href="#">Know More...</a>
+                        {% comment %} <a href="#">Know More...</a> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -103,24 +103,14 @@
         <div class="col-md-12 col-lg-6 announcements">
             <div class="container">
                 <h1 class="copyCenter">Announcements</h1>
+                {% for events in data %}
                 <div class="box newsletter">
                     <div class="copyArea">
-                        <p><strong>Announcement 1</strong> Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Laudantium, commodi.</p>
+                        <p class="text-truncate"><strong>{{events.id}}. {{events.EventName}}</strong> 
+                          <br>  {{events.description}}</p>
                     </div>
                 </div>
-                <div class="box newsletter">
-                    <div class="copyArea">
-                        <p><strong>Announcement 2</strong> Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Laudantium, commodi.</p>
-                    </div>
-                </div>
-                <div class="box newsletter">
-                    <div class="copyArea">
-                        <p><strong>Announcement 3</strong> Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Laudantium, commodi.</p>
-                    </div>
-                </div>
+                {% endfor %} 
 
             </div>
         </div>

@@ -47,15 +47,15 @@
         </div>
     </div>
 
-    <nav class="navbar sticky-top navbar-expand-sm navbar-dark" style="background-color: #111a2d; margin-bottom: 0%;">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark " style="background-color: #111a2d; margin-bottom: 0%; ">
         <div class="container">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home:home' %}">
+        <div class="container">
+            <a class="navbar-brand text-responsive p-1" href="{% url 'home:home' %}">
                 {% load static %}
-                <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px; padding-bottom: 4px; margin-left: 5px;" alt="logo">
+                <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px;" alt="logo">
                 <strong>ISTE</strong> West Bengal Section
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <button class="navbar-toggler p-1 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                <span class="navbar-toggler-icon"></span>
             </button>
         </div>
