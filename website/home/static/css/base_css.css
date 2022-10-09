@@ -24,3 +24,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
+
+.text-responsive {
+  font-size: calc(50% + 1vw + 1vh);
+}

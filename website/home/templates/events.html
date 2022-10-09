@@ -17,7 +17,11 @@
             <tr>
                 <td>{{column.EventName}}</td>
                 <td>{{column.eventDate}}</td>
-                <td><a download href="http://127.0.0.1:8000/media/{{column.file1}}">download pdf file</a></td>
+                <td>
+                 {%if column.file1 %}   <a  href="http://127.0.0.1:8000/media/{{column.file1}}">download pdf file</a> <br>{% endif %}
+                 {%if column.file2 %}  <a  href="http://127.0.0.1:8000/media/{{column.file2}}">download pdf file</a> <br>{% endif %}
+                 {%if column.file3 %} <a  href="http://127.0.0.1:8000/media/{{column.file3}}">download pdf file</a> <br>{% endif %}
+                </td>
             </tr>
             {% endfor %}
     
