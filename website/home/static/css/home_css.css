@@ -44,7 +44,7 @@ a:hover {
 .card {
   height: 25vh;
 }
-.card-image {
+.card-img {
   height: 35vh;
 }
 .card-title {
@@ -80,4 +80,16 @@ a:hover {
   .card-text{
     font-size: 10px;
   }
+  .card-img{
+    height: 30vh;
+  }
+}
+
+.date {
+	background-color: #001333 !important;
+	color: #fff;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 13px;
 }
