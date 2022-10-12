@@ -12,15 +12,15 @@
     <div class="row">
         <div class="col-6 col-md-12 col-lg-3 home-card" style="text-align: center;">
             <div class="col-md-12 col-lg-12">
-                <img class="card-img" src="{% static 'image/profile.png'%}" alt="Card image" style="width:100%">
+                <img class="card-img" src="http://127.0.0.1:8000/media/{{p_data.0.image}}" alt="Card image" style="width:100%">
             </div>
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="text-align: center;">
                     <div class="card-body">
-                        <h4 class="card-title">Dr Nikhil Ranjan Banerjea</h4>
-                        <h5 class="card-title">( Section Chairman )</h5>
+                        <h4 class="card-title">{{p_data.0.name}}</h4>
+                        <h5 class="card-title">( {{p_data.0.Post}} )</h5>
                         <p class="card-text">
-                            Text Here
+                            {{p_data.0.details}}
                         </p>
                         {% comment %} <a href="#">Know More...</a> {% endcomment %}
                     </div>
@@ -32,22 +32,20 @@
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    {% for carousel in c_data %}
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{carousel.id}}"
+                        aria-label="Slide"></button>
+                        {% endfor %}
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="{% static 'image/carousel1.jpg' %}" class="d-block w-100" alt="">
+                        <img src="{% static 'image/carousel1.jpg'%}" class="d-block w-100" alt="">
                     </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="{% static 'image/carousel2.jpg' %}" class="d-block w-100" alt="">
+                    {% for carousel in c_data %}
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img src="http://127.0.0.1:8000/media/{{carousel.image}}" class="d-block w-100" alt="">
                     </div>
-
-                    <!-- <div class="carousel-item">
-                    <img src="{% static 'image/carousel3.jpg' %}" class="d-block w-100" alt="">
-                </div> -->
+                        {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
                     data-bs-slide="prev">
@@ -64,18 +62,15 @@
         </div>
         <div class="col-6 col-md-12 col-lg-3" style="text-align: center;">
             <div class="col-md-12 col-lg-12">
-                <img class="card-img" src="{% static 'image/profile.png'%}" alt="Card image" style="width:100%">
+                <img class="card-img" src="http://127.0.0.1:8000/media/{{p_data.1.image}}" alt="Card image" style="width:100%">
             </div>
             <div class="col-md-12 col-lg-12">
                 <div class="card" style="text-align: center;">
                     <div class="card-body">
-                        <h4 class="card-title">Prof Jyoti Sekhar Banerjee</h4>
-                        <h5 class="card-title">( Secretary-cum-Treasurer )</h5>
+                        <h4 class="card-title">{{p_data.1.name}}</h4>
+                        <h5 class="card-title">( {{p_data.1.Post}} )</h5>
                         <p class="card-text">
-                            Asst. Professor, Dept. of E.C.E,
-                            Bengal Institute of Technology,
-                            Kolkata, West Bengal
-                            <br>
+                            {{p_data.1.details}}
                         </p>
                         {% comment %} <a href="#">Know More...</a> {% endcomment %}
                     </div>
@@ -104,12 +99,14 @@
         <div class="col-md-12 col-lg-6 announcements">
             <div class="container">
                 <h1 class="copyCenter">Announcements</h1>
-                {% for events in data %}
-                <div class="box newsletter">
-                    <div class="copyArea">
-                        <p class="text-truncate"><strong>{{events.id}}. {{events.EventName}}</strong>
-                            <br> {{events.description}}
-                        </p>
+                {% for events in a_data %}
+                <div class="box newsletter p-2">
+                   <a href="{{events.Link1}}">
+                    <p><strong class="date">{{events.Name}} | {{events.Date}}</strong>
+                        <br> {{events.description}}
+                    </p>
+                   </a>
+                       
                     </div>
                 </div>
                 {% endfor %}

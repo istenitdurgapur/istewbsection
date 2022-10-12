@@ -2,8 +2,10 @@ from django.shortcuts import render
 from . import models
 
 def home(request):
-    events_data = models.Event.objects.all().values()
-    return render(request, 'home.html',{'data': events_data})
+    announcement_data = models.Announcement.objects.all().values()
+    carousel_data = models.carousel.objects.all().values()
+    post_data = models.PostBearer.objects.all().values()
+    return render(request, 'home.html',{'a_data': announcement_data,'c_data': carousel_data,'p_data': post_data})
 
 def about(request):
     return render(request, 'about.html',{})

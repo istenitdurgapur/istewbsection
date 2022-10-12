@@ -11,6 +11,13 @@ class Gallery(models.Model):
   
   def __str__(self):
          return self.title
+class carousel(models.Model):
+  title = models.CharField(max_length=100)
+  image=models.ImageField(upload_to='images/gallery')
+  date = models.DateTimeField(default=datetime.today())
+  
+  def __str__(self):
+         return self.title
 
 
 class Event(models.Model):
@@ -43,6 +50,7 @@ class Contact(models.Model):
 
 class PostBearer(models.Model):
   name = models.CharField(max_length=100)
+  image=models.ImageField(upload_to='images/postBearer',null = True , blank=True)
   Post = models.TextField(max_length=100,default=" ")
   details = models.TextField(max_length=100,default=" ")
  
@@ -50,3 +58,10 @@ class PostBearer(models.Model):
   def __str__(self):
          return self.name
 
+class Announcement(models.Model):
+  Name = models.CharField(max_length=100)
+  Date = models.DateTimeField(default=datetime.today())
+  description = models.TextField(max_length=5000,blank=True)
+  Link1 = models.CharField(max_length=5000,blank=True,default='#')
+  def __str__(self):
+         return self.Name
