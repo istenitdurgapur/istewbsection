@@ -10,7 +10,7 @@
         <h1>Welcome to ISTE WB Section</h1>
     </div>
     <div class="row">
-        <div class="col-md-12 col-lg-3 home-card" style="text-align: center;">
+        <div class="col-6 col-md-12 col-lg-3 home-card" style="text-align: center;">
             <div class="col-md-12 col-lg-12">
                 <img class="card-img" src="{% static 'image/profile.png'%}" alt="Card image" style="width:100%">
             </div>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-lg-6">
+        <div class="col-md-12 col-lg-6 scr">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -62,7 +62,7 @@
             </div>
             <br>
         </div>
-        <div class="col-md-12 col-lg-3" style="text-align: center;">
+        <div class="col-6 col-md-12 col-lg-3" style="text-align: center;">
             <div class="col-md-12 col-lg-12">
                 <img class="card-img" src="{% static 'image/profile.png'%}" alt="Card image" style="width:100%">
             </div>
@@ -83,6 +83,7 @@
             </div>
         </div>
     </div>
+
     <hr class="home-hr1">
     <div class="row">
         <div class="col-md-12 col-lg-6" style="text-align: left;">
@@ -106,15 +107,31 @@
                 {% for events in data %}
                 <div class="box newsletter">
                     <div class="copyArea">
-                        <p class="text-truncate"><strong>{{events.id}}. {{events.EventName}}</strong> 
-                          <br>  {{events.description}}</p>
+                        <p class="text-truncate"><strong>{{events.id}}. {{events.EventName}}</strong>
+                            <br> {{events.description}}
+                        </p>
                     </div>
                 </div>
-                {% endfor %} 
+                {% endfor %}
 
             </div>
         </div>
     </div>
 
 </div>
+
+<script>
+    const scr = document.getElementsByClassName("scr");
+
+    $(window).resize(function () {
+        var widthWindow = $(window).width();
+        if (widthWindow <= '800') {
+            $(scr).addClass('order-first');
+        }
+        else {
+            $(scr).removeClass('order-first');
+        }
+    });
+    $(window).trigger('resize');
+</script>
 {% endblock %}

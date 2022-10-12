@@ -1,13 +1,9 @@
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-.home-title{
-    text-align: center;
-    margin: 20px 0;
+.home-title {
+  text-align: center;
+  margin: 20px 0;
 }
-.home-title h1{
-    
-    font-variant-caps: all-petite-caps;
+.home-title h1 {
+  font-variant-caps: all-petite-caps;
 }
 
 .announcements h1 {
@@ -28,53 +24,60 @@ a:hover {
 .copyArea {
   max-width: 850px;
   float: none;
-  display:block;
+  display: block;
   overflow: hidden;
 }
 .copyArea p {
   margin-top: 20px;
 }
 
-
 /* Unique Box Styles */
-.newsletter{
+.newsletter {
   /* background:turquoise; */
   /* border-top:5px solid #2A9489; */
-  border-top:5px solid blue;
+  border-top: 5px solid blue;
   border-radius: 5px;
   /* color: #2A9489; */
-  background-color: skyblue;
+  background-color: rgba(255, 255, 255, 1);
   color: royalblue;
 }
-.card{
-    height: 25vh;
+.card {
+  height: 25vh;
 }
-.card-image{
-    height: 35vh;
+.card-image {
+  height: 35vh;
 }
-.card-title{
-    font-weight: bolder;
-    font-size: 16px;
+.card-title {
+  font-weight: bolder;
+  font-size: 16px;
 }
-.card-text{
-    font-size: 12px;
+.card-text {
+  font-size: 12px;
 }
-.card-body a{
-    text-decoration: none;
+.card-body a {
+  text-decoration: none;
 }
-.carousel-item{
-    /* border: 2px solid red; */
-    padding-top: 2vh;
-    object-fit: cover;
-    height: 60vh;
+.carousel-item {
+  /* border: 2px solid red; */
+  padding-top: 2vh;
+  object-fit: cover;
+  height: 60vh;
 }
-.carousel-item img{
-   height: 90%;
+.carousel-item img {
+  height: 90%;
 }
-.carousel-indicators{
-    margin-bottom: -10px;
+.carousel-indicators {
+  margin-bottom: -10px;
 }
-.home-hr1{
-    margin: 60px 0 ;
+.home-hr1 {
+  margin: 60px 0;
 }
 
+@media (max-width: 530px) {
+  .card-title{
+    font-size: 12px;
+  }
+  .card-text{
+    font-size: 10px;
+  }
+}
