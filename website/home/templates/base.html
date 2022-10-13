@@ -58,33 +58,53 @@
         </div>
     </div>
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-css ">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark " style="background-color: #111a2d; margin-bottom: 0%; ">
         <div class="container">
-            <div class="container">
-                <a class="navbar-brand text-responsive p-1" href="{% url 'home:home' %}">
-                    {% load static %}
-                    <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px;" alt="logo">
-                    <strong>ISTE</strong> West Bengal Section
-                </a>
-                <button class="navbar-toggler p-1 mt-2 float-end" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon" style="font-size: 17px;"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav" style="white-space:nowrap; text-align: center;">
-                    <li class="nav-item">
-                        <a class="nav-link m-2" href="http://www.isteonline.in" target="_blank">ISTE</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block home_active %}{% endblock %}"
-                            href="{% url 'home:home' %}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block about-us %}{% endblock %}"
-                            href="{% url 'home:about-us' %}">About Us</a>
-                    </li>
-                    <!-- <li class="nav-item dropdown m-2">
+        <div class="container">
+            <a class="navbar-brand text-responsive p-1" href="{% url 'home:home' %}">
+                {% load static %}
+                <img id="logoISTE" src="{% static 'image/logo.png'%}" style="max-width:50px;" alt="logo">
+                <strong>ISTE</strong> West Bengal Section
+            </a>
+            <button class="navbar-toggler p-1 float-end" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav" style="white-space:nowrap; text-align: center;">
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block home_active %}{% endblock %}" href="{% url 'home:home' %}">Home</a>
+                </li> 
+                <li class="nav-item dropdown m-2">
+                    <a class="nav-link dropdown-toggle tab {% block about-iste %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">ISTE</a>
+                    <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d; text-align: center;">
+                        <li><a class="dropdown-item" href="http://www.isteonline.in"  target="_blank">ISTE</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:about-iste' %}">Introduction</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:code-of-conduct' %}">Code of Conduct</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:objective' %}">Objective & Overview</a></li>
+                        <li><a class="dropdown-item" href="https://membership.isteonline.in/" target="_blank">Online Membership</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown m-2">
+                    <a class="nav-link dropdown-toggle tab {% block about-section %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">WB Section</a>
+                    <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d; text-align: center;">
+                      <li><a class="dropdown-item" href="{% url 'home:about-section' %}">Introduction</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:chairman' %}">Section Chairman</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:secretary' %}">Section Secretary</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:chapters' %}">Student Chapters</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown m-2">
+                    <a class="nav-link dropdown-toggle tab {% block join-iste %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">Join ISTE</a>
+                    <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d; text-align: center;">
+                      <li><a class="dropdown-item" href="{% url 'home:establish-chapter' %}">How to Establish an ISTE Chapter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:establish-student-chapter' %}">How to Establish an ISTE Students' Chapter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:incentive-chapter' %}">Incentives to ISTE Chapter</a></li>
+                      <li><a class="dropdown-item" href="{% url 'home:incentive-student-chapter' %}">Incentives to ISTE Students' Chapter</a></li>
+                      <li><a class="dropdown-item" href="https://membership.isteonline.in/" target="_blank">Online Membership</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item dropdown m-2">
                     <a class="nav-link dropdown-toggle tab" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
                     <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d;">
                       <li><a class="dropdown-item" href="#">Link</a></li>
@@ -92,21 +112,21 @@
                       <li><a class="dropdown-item" href="#">A third link</a></li>
                     </ul>
                 </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block events %}{% endblock %}"
-                            href="{% url 'home:events' %}">Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block gallery %}{% endblock %} "
-                            href="{% url 'home:gallery' %}">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block contact %}{% endblock %}"
-                            href="{% url 'home:contact' %}">Contact</a>
-                    </li>
-                </ul>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block events %}{% endblock %}" href="{% url 'home:events' %}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block gallery %}{% endblock %} " href="{% url 'home:gallery' %}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block team %}{% endblock %}" href="{% url 'home:team' %}">Committee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link m-2 {% block contact %}{% endblock %}" href="{% url 'home:contact' %}">Contact</a>
+                </li>
+            </ul>
         </div>
+    </div>
     </nav>
     {% block content %} {% endblock %}
 
@@ -130,11 +150,12 @@
                 </div>
                 <div class="col-md-3 col-xl-3" style="text-align: center;">
                     <h3 style="color: white;">Useful Links</h3>
-                    <ul style="color: white;list-style-type:none;">
-                        <li><a style="text-decoration:none" href="http://www.isteonline.in">ISTE</a></li>
-                        <li><a style="text-decoration:none" href="{% url 'home:about-us' %}">About Us</a></li>
-                        <li><a style="text-decoration:none" href="{% url 'home:home'%}">Contact Us</a></li>
-                        <li><a style="text-decoration:none" href="{% url 'home:home'%}">Events</a></li>
+                    <ul  style="color: white;list-style-type:none;">
+                        <li><a  style="text-decoration:none" href="http://www.isteonline.in">ISTE</a></li>
+                        <li><a  style="text-decoration:none" href="{% url 'home:about-iste' %}">About ISTE</a></li>
+                        <li><a   style="text-decoration:none" href="{% url 'home:gallery'%}">Gallery</a></li>
+                        <li><a  style="text-decoration:none" href="{% url 'home:home'%}">Events</a></li>
+                        <li><a  style="text-decoration:none" href="https://membership.isteonline.in/">Online Membership</a></li>
                     </ul>
                 </div>
                 <hr>
