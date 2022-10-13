@@ -17,31 +17,44 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-sm-12 col-md-12">
-            <!--Google map-->
-            <div class="mb-4">
-                <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1872625.5492124276!2d85.18690739999998!3d23.551493800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027127737c74db%3A0xadecfaaf32b99c8a!2sIndian%20Institute%20for%20Secondary%20%26%20Technical%20Education!5e0!3m2!1sen!2sin!4v1665154110477!5m2!1sen!2sin"
-                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-                    tabindex="0"></iframe>
+        <!--Google map-->
+        <div class="col-lg-6 col-md-12">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15228.105721792223!2d88.34726367080063!3d22.553628114643082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02770638be7969%3A0x5cdd4429a3dbfbc3!2sForum%20of%20Scientist%20Engineers%20%26%20Technologists%20(FOSET)!5e0!3m2!1sen!2sin!4v1665643607800!5m2!1sen!2sin" 
+            width="100%" height="350" style="border: 2px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="col-lg-1 col-md-0">
+
+        </div>
+        <!--Buttons-->
+        <div class="col-lg-5 col-md-12">
+            <br>
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
+                        class="fa fa-map-marker"></i></a>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <p> {{contact.location | safe}}</p>
+                </div>
             </div>
-            <!--Buttons-->
-            <div class="row text-center">
-                <div class="col-md-4">
+            <br>
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
                     <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
-                            class="fa fa-map-marker"></i></a>
-                    <p> {{data.0.location}}</p>
+                        class="fa fa-phone"></i></a>
                 </div>
-                <div class="col-md-4">
-                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
-                            class="fa fa-phone"></i></a>
-                    <p>{{data.0.phone1}}</p>
-                    <p>{{data.0.phone2}}</p>
+                <div class="col-lg-9 col-md-8">
+                    <p>{{contact.phone1}} <br> {{contact.phone2}} </p>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
                     <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
-                            class="fa fa-envelope"></i></a>
-                    <p>{{data.0.email}}</p>
+                        class="fa fa-envelope"></i></a>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <p>{{contact.email}}</p>
                 </div>
             </div>
         </div>

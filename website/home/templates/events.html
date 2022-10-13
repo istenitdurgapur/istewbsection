@@ -4,35 +4,66 @@
 
 {% block events %}active{% endblock %}
 
+{% block css %} 
+<style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+{% endblock %}
+
 {% block content %} {% load widget_tweaks %}
 
-<div class="container border flex mt-4">
+<br>
+<h1 style="text-align:center;">EVENTS</h1>
+
+{% if events %}
+<div class=" table-responsive container border flex mt-4 text-center col-lg-12">
     <table class="container">
         <tr>
-            <th>Event</th>
-            <th>Date</th> 
-            <th>Details</th>
-            <th>Link</th>
+            <th width="10%">Date</th>
+            <th width="20%">Event</th>
+            <th width="10%">Venue</th> 
+            <th width="40%">Details</th>
+            <th width="20%">Resources</th>
         </tr>
-            {% for column in data %}
+            {% for event in events %}
             <tr>
-                <td>{{column.EventName}}</td>
-                <td>{{column.eventDate}}</td>
+                <td>{{event.date}}</td>
+                <td>{{event.title}}</td>
+                <td>{{event.venue}}</td>
+                <td>{{event.description | safe}}</td>
                 <td>
-                 {%if column.file1 %}   <a  href="http://127.0.0.1:8000/media/{{column.file1}}">download pdf file</a> <br>{% endif %}
-                 {%if column.file2 %}  <a  href="http://127.0.0.1:8000/media/{{column.file2}}">download pdf file</a> <br>{% endif %}
-                 {%if column.file3 %} <a  href="http://127.0.0.1:8000/media/{{column.file3}}">download pdf file</a> <br>{% endif %}
-                </td>
-                <td>
-                    {%if column.Link1 %}   <a  href="{{column.Link1}}">{{column.Link1}}</a> <br>{% endif %}
-                    {%if column.Link2 %}  <a  href="{{column.Link2}}">{{column.Link2}}</a> <br>{% endif %}
-                    {%if column.Link3 %} <a  href="{{column.Link3}}">{{column.Link3}}</a> <br>{% endif %}
+                    {%if event.upload_file1 %}   <a  href="{{event.upload_file1.url}}" target="_blank">
+                        {%if event.title_file1 %} {{event.title_file1}} {% else %} Document {% endif %} </a>
+                    {% endif %}
+                    {%if event.upload_file2 %}   <a  href="{{event.upload_file2.url}}" target="_blank">
+                        {%if event.title_file2 %} | {{event.title_file2}} {% else %} Document {% endif %} </a>
+                    {% endif %}
+                    {%if event.upload_file3 %}   <a  href="{{event.upload_file3.url}}" target="_blank">
+                        {%if event.title_file3 %} | {{event.title_file3}} {% else %} Document {% endif %} </a>
+                    {% endif %}
+                    <br>
+                    {%if event.url_link1 %}   <a  href="{{event.url_link1}}" target="_blank">
+                        {%if event.title_link1 %} {{event.title_link1}} {% else %} Link {% endif %} </a>
+                    {% endif %}
+                    {%if event.url_link2 %}   <a  href="{{event.url_link2}}" target="_blank">
+                        {%if event.title_link2 %} | {{event.title_link2}} {% else %} Link {% endif %} </a>
+                    {% endif %}
+                    {%if event.url_link3 %}   <a  href="{{event.url_link3}}" target="_blank">
+                        {%if event.title_link3 %} | {{event.title_link3}} {% else %} Link {% endif %} </a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
     
      </table>
 </div>
-
-
+{% else %}
+      <br>
+      <p style="text-align: center;">
+        We are planning for an exciting evnts!! Stay tuned for latest updates!!
+      </p>
+{% endif %}
 {% endblock %}

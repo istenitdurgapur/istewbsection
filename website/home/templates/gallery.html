@@ -7,15 +7,22 @@
 
 <div class="gallery">
   <h1>GALLERY</h1>
-  <div class="gallery-container">
-    {% for images in data %}
-    <div class="gallery-item" data-index="{{images.id}}">
-      <img  style="height:80%" src="http://127.0.0.1:8000/media/{{images.image}}" />
-      <p class="text-center m-0 ">{{images.title}}</p>
-      <p  class="text-center ">{{images.date}}</p>
-    </div>
-    {% endfor %}
-  </div>
+    {% if images %}
+      <div class="gallery-container">
+        {% for image in images %}
+        <div class="gallery-item" data-index="{{image.id}}">
+          <img  style="height:80%" src="http://127.0.0.1:8000/media/{{image.image}}" />
+          <p class="text-center m-0 ">{{image.title}}</p>
+          <p  class="text-center "><i class="fas fa-calendar"></i> {{image.date}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <br>
+      <p style="text-align: center;">
+        We are building Gallery with the latest images from our events.
+      </p>
+    {% endif %}
 </div>
 
 <script src="{% static 'js/gallery.js' %}"></script>
