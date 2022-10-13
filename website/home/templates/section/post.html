@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} ISTE WB Section {% endblock title %}
+
+{% block about-section %}active{% endblock %}
+
+{% block content %} {% load widget_tweaks %}
+
+<br>
+<div class="container">
+    <div class="row home-title">
+        <h1>ISTE West Bengal Section {{postHolder.post.title}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-12"></div>
+        <div class="col-lg-4 col-md-12">
+            <img class="card-img" src="{{postHolder.image.url}}" alt="Card image" style="width:100%">
+        </div>
+        <div class="col-lg-4 col-md-12"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12" style="text-align: center;">
+            <br>
+            <h4>{{postHolder.name}}</h4>
+            <h5>{{postHolder.post.title}}</h5>
+            {{postHolder.introduction | safe}}
+            <br><hr>
+            {{postHolder.description | safe}}
+        </div>
+    </div>
+</div>
+{% endblock %}

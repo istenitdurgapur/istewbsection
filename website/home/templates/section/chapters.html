@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} ISTE WB Section {% endblock title %}
+
+{% block about-section %}active{% endblock %}
+
+{% block css %} 
+<style>
+    table, th, td {
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+{% endblock %}
+
+{% block content %} {% load widget_tweaks %}
+
+<br>
+<h1 style="text-align:center;">Students' Chapter</h1>
+
+{% if chapters %}
+<div class=" table-responsive container border flex mt-4 text-center col-lg-12">
+    <table class="container">
+        <tr>
+            <th width="10%">Chapter Code</th>
+            <th width="30%">Name</th>
+            <th width="40%">Address</th>
+            <th width="20%">Email</th>
+        </tr>
+            {% for chapter in chapters %}
+            <tr>
+                <td>{{chapter.chapter_code}}</td>
+                <td>{{chapter.name}}</td>
+                <td>{{chapter.college}}<br>{{chapter.address}}</td>
+                <td>{{chapter.email}}</td>
+            </tr>
+            {% endfor %}
+    
+     </table>
+</div>
+{% else %}
+      <br>
+      <p style="text-align: center;">
+        We are populating the list of Students' Chapters in West Bengal Section !!
+      </p>
+{% endif %}
+{% endblock %}
