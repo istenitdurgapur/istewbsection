@@ -6,9 +6,6 @@
 
 {% block content %} {% load widget_tweaks %}
 <div class="container" style="margin-top: 20px;">
-    <div class="row home-title">
-        <h1>Welcome to ISTE WB Section</h1>
-    </div>
     <div class="row">
         <div class="col-md-12 col-lg-3 home-card" style="text-align: center;">
             <div class="col-md-12 col-lg-12">
@@ -23,9 +20,9 @@
                             {{chairman.introduction}}
                         </p>
                         <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Chairman">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Chairman">
                             Know More... 
-                        </button> -->
+                        </button>
                     </div>
                 </div>
             </div>
@@ -76,9 +73,9 @@
                             {{secretary.introduction}}
                         </p>
                         <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Secretary">
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Secretary">
                             Know More... 
-                        </button> -->
+                        </button>
                     </div>
                 </div>
             </div>
@@ -146,9 +143,7 @@
     $(window).trigger('resize');
 </script>
 
-{% comment %}
-<!-- Modal - Chairman -->
-<!-- <div class="modal fade" id="staticBackdrop_Chairman" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop_Chairman" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
     <div class="modal-header">
@@ -165,17 +160,22 @@
                 <h4>{{chairman.name}}</h4>
                 <h5>{{chairman.post.title}}</h5>
                 {{chairman.introduction | safe}}
-                <br><hr>
+                <br>
+                {% if chairman.link %}
+                    <br>
+                    <a href="{{chairman.link}}" target="_blank">Profile Link</a>
+                {% endif %}
+                <hr>
                 {{chairman.description | safe}}
             </div>
             </div>
     </div>
     </div>
 </div>
-</div> -->
+</div>
 
 <!-- Modal - Secretary -->
-<!-- <div class="modal fade" id="staticBackdrop_Secretary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop_Secretary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
         <div class="modal-header">
@@ -192,6 +192,11 @@
                     <h4>{{secretary.name}}</h4>
                     <h5>{{secretary.post.title}}</h5>
                     {{secretary.introduction | safe}}
+                    <br>
+                    {% if secretary.link %}
+                        <br>
+                        <a href="{{secretary.link}}" target="_blank">Profile Link</a>
+                    {% endif %}
                     <br><hr>
                     {{secretary.description | safe}}
                 </div>
@@ -199,6 +204,5 @@
         </div>
         </div>
     </div>
-    </div> -->
-{% endcomment %}
+    </div>
 {% endblock %}
