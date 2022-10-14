@@ -10,15 +10,11 @@ urlpatterns = [
     path('contact-us/', views.contact, name='contact'),
     path('committee/', views.team, name='team'),
 
-    # ISTE
+    # About Us
     path('about-iste/', views.about_iste, name='about-iste'),
     path('code-of-conduct/', views.code_of_conduct, name='code-of-conduct'),
     path('objective/', views.objective, name='objective'),
-
-    # Section
     path('about-section/', views.about_section, name='about-section'),
-    path('section-chairman/', views.chairman, name='chairman'),
-    path('section-secretary/', views.secretary, name='secretary'),
     path('section-student-chapters/', views.chapters, name='chapters'),
 
     # Join ISTE
