@@ -20,6 +20,9 @@
             <h5>{{member.name}}</h5>
             <h6>{{member.post.title}}</h6>
             <h6>{{member.introduction}}</h6>
+            {% if member.link %}
+                <h6><a href="{{member.link}}" target="_blank">Know More</a></h6>
+            {% endif %}
         </div>
         <div class="col-lg-1 col-md-12">
         </div>
