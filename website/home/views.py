@@ -4,7 +4,7 @@ from . import models
 def home(request):
     chairman = models.PostBearer.objects.all().filter(post__priority=1).first()
     secretary = models.PostBearer.objects.all().filter(post__priority=2).first()
-    carousel_data = models.carousel.objects.all()
+    carousel_data = models.carousel.objects.all().order_by('-date')
     announcements = models.Announcement.objects.all().order_by('-updated_at')[:5]
     return render(request, 'home.html',{'announcements': announcements, 'chairman':chairman, 'secretary':secretary, 'c_data': carousel_data})
 
@@ -19,14 +19,6 @@ def code_of_conduct(request):
 
 def objective(request):
     return render(request, 'iste/objective.html',{})
-
-def chairman(request):
-    postHolder = models.PostBearer.objects.all().filter(post__priority=1).first()
-    return render(request, 'section/post.html',{'postHolder':postHolder})
-
-def secretary(request):
-    postHolder = models.PostBearer.objects.all().filter(post__priority=2).first()
-    return render(request, 'section/post.html',{'postHolder':postHolder})
 
 def chapters(request):
     chapters = models.Chapter.objects.all()

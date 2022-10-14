@@ -28,10 +28,6 @@ class Event(models.Model):
   venue = models.CharField(max_length=100, default='Online')
   description = models.TextField(max_length=5000,blank=True)
   
-  image1=models.ImageField(upload_to='images/Events',null = True , blank=True)
-  image2=models.ImageField(upload_to='images/Events',null = True , blank=True)
-  image3=models.ImageField(upload_to='images/Events',null = True , blank=True)
-
   title_link1 = models.CharField(max_length=200, default='', blank=True)
   url_link1 = models.URLField(blank=True)
   title_link2 = models.CharField(max_length=200, default='', blank=True)
@@ -82,12 +78,14 @@ class Post(models.Model):
   
   def __str__(self):
          return self.title + " (Priority - " + str(self.priority) + ")"
+
 class PostBearer(models.Model):
   name = models.CharField(max_length=100)
   post = models.ForeignKey('Post', null=True, on_delete=models.CASCADE)
   image = models.ImageField(upload_to='images/PostBearer',null = True, blank=True)
   introduction = models.TextField(max_length=200,default=" ", blank=True, null=True)
-  description = models.TextField(max_length=5000,default=" ", blank=True, null=True)  
+  description = models.TextField(max_length=5000,default=" ", blank=True, null=True)
+  link = models.URLField(null=True, blank=True, default='')
 
   created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)

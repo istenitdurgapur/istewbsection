@@ -11,7 +11,7 @@
       <div class="gallery-container">
         {% for image in images %}
         <div class="gallery-item" data-index="{{image.id}}">
-          <img  style="height:80%" src="http://127.0.0.1:8000/media/{{image.image}}" />
+          <img  style="height:80%" src="{{image.image.url}}" />
           <p class="text-center m-0 ">{{image.title}}</p>
           <p  class="text-center "><i class="fas fa-calendar"></i> {{image.date}}</p>
         </div>
