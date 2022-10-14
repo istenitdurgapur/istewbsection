@@ -72,26 +72,27 @@
         </div>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav" style="white-space:nowrap; text-align: center;">
+
+                {% if request.path == "/" %}
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link m-2 {% block home_active %}{% endblock %}" href="{% url 'home:home' %}">Home</a>
+                    </li>
+                {% endif %}
+
+                 
                 <li class="nav-item">
-                    <a class="nav-link m-2 {% block home_active %}{% endblock %}" href="{% url 'home:home' %}">Home</a>
-                </li> 
-                <li class="nav-item dropdown m-2">
-                    <a class="nav-link dropdown-toggle tab {% block about-iste %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">ISTE</a>
-                    <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d; text-align: center;">
-                        <li><a class="dropdown-item" href="http://www.isteonline.in"  target="_blank">ISTE</a></li>
-                        <li><a class="dropdown-item" href="{% url 'home:about-iste' %}">Introduction</a></li>
-                        <li><a class="dropdown-item" href="{% url 'home:code-of-conduct' %}">Code of Conduct</a></li>
-                        <li><a class="dropdown-item" href="{% url 'home:objective' %}">Objective & Overview</a></li>
-                        <li><a class="dropdown-item" href="https://membership.isteonline.in/" target="_blank">Online Membership</a></li>
-                    </ul>
+                    <a class="nav-link m-2" href="http://www.isteonline.in">ISTE</a>
                 </li>
                 <li class="nav-item dropdown m-2">
-                    <a class="nav-link dropdown-toggle tab {% block about-section %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">WB Section</a>
+                    <a class="nav-link dropdown-toggle tab {% block about-iste %}{% endblock %}" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
                     <ul class="dropdown-menu ml-2" style="padding: 2px; background-color: #111a2d; text-align: center;">
-                      <li><a class="dropdown-item" href="{% url 'home:about-section' %}">Introduction</a></li>
-                      <li><a class="dropdown-item" href="{% url 'home:chairman' %}">Section Chairman</a></li>
-                      <li><a class="dropdown-item" href="{% url 'home:secretary' %}">Section Secretary</a></li>
-                      <li><a class="dropdown-item" href="{% url 'home:chapters' %}">Student Chapters</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:about-iste' %}">About ISTE</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:about-section' %}">About WB Section</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:code-of-conduct' %}">Code of Conduct</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:objective' %}">Objective & Overview</a></li>
+                        <li><a class="dropdown-item" href="{% url 'home:chapters' %}">Student Chapters</a></li>
+                        <li><a class="dropdown-item" href="https://membership.isteonline.in/" target="_blank">Online Membership</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown m-2">
