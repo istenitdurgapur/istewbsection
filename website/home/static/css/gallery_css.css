@@ -1,25 +1,24 @@
-.gallery{
-  margin-top: 60px;
-}
-.gallery h1{
+.gallery h1 {
   font-size: 42px;
   text-align: center;
+  margin-top: 20px;
 }
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
-  width: 80%;
+  justify-content: flex-start;
+  /* gap: 15p;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3); */
   margin: 0 auto;
   margin-top: 30px;
-  padding: 10px;
+  object-fit: contain;
 }
 .gallery-item {
   flex-basis: 32.7%;
   margin-bottom: 6px;
-  opacity: .85;
+  opacity: 0.85;
   cursor: pointer;
+  padding: 10px;
 }
 .gallery-item:hover {
   opacity: 1;
@@ -29,7 +28,7 @@
   object-fit: cover;
 }
 .gallery-content {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .lightbox {
@@ -37,7 +36,7 @@
   display: none;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
-  height: 100vh;              
+  height: 100vh;
   overflow: auto;
   top: 10vh;
   left: 0;
@@ -50,10 +49,10 @@
 }
 .lightbox-content img {
   border-radius: 7px;
-  box-shadow: 0 0 3px 0 rgba(225, 225, 225, .25);
+  box-shadow: 0 0 3px 0 rgba(225, 225, 225, 0.25);
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .lightbox-prev,
 .lightbox-next {
@@ -72,30 +71,30 @@
 }
 .lightbox-prev:hover,
 .lightbox-next:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 @media (max-width: 767px) {
   .gallery-container {
-      width: 100%;
+    width: 100%;
   }
   .gallery-item {
-      flex-basis: 49.80%;
-      margin-bottom: 3px;
+    flex-basis: 49.8%;
+    margin-bottom: 3px;
   }
   .lightbox-content {
-      width: 80%;
-      height: 60%;
-      margin: 15% auto;
+    width: 80%;
+    height: 60%;
+    margin: 15% auto;
   }
 }
 @media (max-width: 480px) {
   .gallery-item {
-      flex-basis: 100%;
-      margin-bottom: 1px;
+    flex-basis: 100%;
+    margin-bottom: 1px;
   }
   .lightbox-content {
-      width: 90%;
-      margin: 20% auto;
+    width: 90%;
+    margin: 20% auto;
   }
 }
