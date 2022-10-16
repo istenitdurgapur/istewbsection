@@ -10,6 +10,13 @@
         border: 2px solid black;
         border-collapse: collapse;
     }
+    @media (max-width: 476px) {
+        td{
+            font-size: 12px;
+        }
+    }
+
+
 </style>
 {% endblock %}
 
@@ -19,21 +26,21 @@
 <h1 style="text-align:center;">EVENTS</h1>
 
 {% if events %}
-<div class=" table-responsive container border flex mt-4 text-center col-lg-12">
-    <table class="container">
+<div class=" table-responsive container border flex mt-4 text-center col-lg-12 " style="padding: 0 ;">
+    <table class="">
         <tr>
-            <th width="10%">Date</th>
-            <th width="20%">Event</th>
-            <th width="10%">Venue</th> 
-            <th width="40%">Details</th>
-            <th width="20%">Resources</th>
+            <th width="10%" style="padding: 5px ;">Date</th>
+            <th width="20%" style="padding: 5px ;">Event</th>
+            <th width="20%" style="padding: 5px ;">Venue</th> 
+            <th width="40%" style="padding: 5px ;">Details</th>
+            <th width="10%" style="padding: 5px ;">Resources</th>
         </tr>
             {% for event in events %}
             <tr>
-                <td>{{event.date}}</td>
-                <td>{{event.title}}</td>
-                <td>{{event.venue}}</td>
-                <td>{{event.description | safe}}</td>
+                <td style="padding: 10px ;">{{event.date}}</td>
+                <td style="padding: 10px ;">{{event.title}}</td>
+                <td style="padding: 10px ;">{{event.venue}}</td>
+                <td style="padding: 20px ;" ><details>{{event.description | safe}}<details></td>
                 <td>
                     {%if event.upload_file1 %}   <a  href="{{event.upload_file1.url}}" target="_blank">
                         {%if event.title_file1 %} {{event.title_file1}} {% else %} Document {% endif %} </a>

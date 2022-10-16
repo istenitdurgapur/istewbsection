@@ -7,27 +7,7 @@
 {% block content %} {% load widget_tweaks %}
 <div class="container" style="margin-top: 20px;">
     <div class="row">
-        <div class="col-md-12 col-lg-3 home-card" style="text-align: center;">
-            <div class="col-md-12 col-lg-12">
-                <img class="card-img" src="{{chairman.image.url}}" alt="Card image" style="width:100%">
-            </div>
-            <div class="col-md-12 col-lg-12">
-                <div class="card" style="text-align: center;">
-                    <div class="card-body">
-                        <h4 class="card-title">{{chairman.name}}</h4>
-                        <h5 class="card-title">{{chairman.post.title}}</h5>
-                        <p class="card-text">
-                            {{chairman.introduction}}
-                        </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Chairman">
-                            Know More... 
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-6 scr">
+        <div class="col-md-12 col-lg-8 scr">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -35,7 +15,7 @@
                     {% for carousel in c_data %}
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{carousel.id}}"
                         aria-label="Slide"></button>
-                        {% endfor %}
+                    {% endfor %}
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
@@ -45,7 +25,7 @@
                     <div class="carousel-item" data-bs-interval="10000">
                         <img src="{{carousel.image.url}}" class="d-block w-100" alt="">
                     </div>
-                        {% endfor %}
+                    {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
                     data-bs-slide="prev">
@@ -60,31 +40,37 @@
             </div>
             <br>
         </div>
-        <div class="col-md-12 col-lg-3 home-card" style="text-align: center;">
-            <div class="col-md-12 col-lg-12">
-                <img class="card-img" src="{{secretary.image.url}}" alt="Card image" style="width:100%">
-            </div>
-            <div class="col-md-12 col-lg-12">
-                <div class="card" style="text-align: center;">
-                    <div class="card-body">
-                        <h4 class="card-title">{{secretary.name}}</h4>
-                        <h5 class="card-title">{{secretary.post.title}}</h5>
-                        <p class="card-text">
-                            {{secretary.introduction}}
+        <div class="col-md-12 col-lg-4 announcements">
+            <div class="container">
+                <h1 class="copyCenter">Announcements</h1>
+                {% if announcements %}
+                {% for announcement in announcements %}
+                <div class="box newsletter">
+                    <div class="copyArea">
+                        <p class="text-truncate">
+                            {% if announcement.link %}
+                            <a href="{{announcement.link}}">
+                                <strong>{{announcement.title}}</strong>
+                            </a>
+                            {% else %}
+                            <strong>{{announcement.title}}</strong>
+                            {% endif %}
+                            <br>{{announcement.description}}
                         </p>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Secretary">
-                            Know More... 
-                        </button>
                     </div>
                 </div>
+                {% endfor %}
+                {% else %}
+                <p style="text-align:center">New announcements to be released soon...</p>
+                {% endif %}
+
             </div>
         </div>
     </div>
 
-    <hr class="home-hr1">
-    <div class="row">
-        <div class="col-md-12 col-lg-6" style="text-align: left;">
+    <!-- <hr class="home-hr1"> -->
+    <div class="row about_section">
+        <div style="text-align: left;">
             <h2> Indian Society for Technical Education </h2>
             <p>
                 The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making
@@ -99,31 +85,110 @@
                 level and 19 Sections at State Level .
             </p>
         </div>
-        <div class="col-md-12 col-lg-6 announcements">
-            <div class="container">
-                <h1 class="copyCenter">Announcements</h1>
-                {% if announcements %}
-                    {% for announcement in announcements %}
-                    <div class="box newsletter">
-                        <div class="copyArea">
-                            <p class="text-truncate">
-                                {% if announcement.link %}
-                                    <a href="{{announcement.link}}">
-                                        <strong>{{announcement.title}}</strong>
-                                    </a>
-                                {% else %}
-                                    <strong>{{announcement.title}}</strong> 
-                                {% endif %}
-                                <br>{{announcement.description}}
-                            </p>
+    </div>
+
+    <div class="row">
+        <!-- <h1 class="h1-text">
+            <i class="fa fa-users" aria-hidden="true"></i>Team Members
+        </h1> -->
+        <div class="team-container">
+            <div class="team-box">
+                <div class="top-bar"></div>
+                <div class="content">
+                    <img src="{{chairman.image.url}}"
+                        alt="">
+                    <strong>{{chairman.name}}</strong>
+                    <p>{{chairman.post.title}}</p>
+                    <p class="card-text" style="margin-bottom: 15px ;">
+                        {{chairman.introduction}}
+                    </p>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Chairman">
+                    Know More... 
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop_Chairman" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{chairman.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                                    <div class="col-md-12 col-lg-12">
+                                        <img class="card-img" src="{{chairman.image.url}}" alt="Card image" style="width:50%">
+                                    </div>
+                                    <br>
+                                    <h4>{{chairman.name}}</h4>
+                                    <h5>{{chairman.post.title}}</h5>
+                                    {{chairman.introduction | safe}}
+                                    <br>
+                                    {% if chairman.link %}
+                                        <br>
+                                        <a href="{{chairman.link}}" target="_blank">Profile Link</a>
+                                    {% endif %}
+                                    <hr>
+                                    {{chairman.description | safe}}
+                                </div>
+                                </div>
+                        </div>
                         </div>
                     </div>
-                    {% endfor %}
-                {% else %}
-                    <p style="text-align:center">New announcements to be released soon...</p>
-                {% endif %}
-
+                    </div>
+                    
             </div>
+            <div class="team-box">
+                <div class="top-bar"></div>
+                <div class="content">
+                    <img src="{{secretary.image.url}}"
+                        alt="">
+                    <strong>{{secretary.name}}</strong>
+                    <p>{{secretary.post.title}}</p>
+                    <p class="card-text" style="margin-bottom: 15px ;">
+                        {{secretary.introduction}}
+                    </p>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Secretary">
+                    Know More... 
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop_Secretary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{chairman.name}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12" style="text-align: center;">
+                                    <div class="col-md-12 col-lg-12">
+                                        <img class="card-img" src="{{secretary.image.url}}" alt="Card image" style="width:50%">
+                                    </div>
+                                    <br>
+                                    <h4>{{secretary.name}}</h4>
+                                    <h5>{{secretary.post.title}}</h5>
+                                    {{secretary.introduction | safe}}
+                                    <br>
+                                    {% if secretary.link %}
+                                        <br>
+                                        <a href="{{secretary.link}}" target="_blank">Profile Link</a>
+                                    {% endif %}
+                                    <hr>
+                                    {{secretary.description | safe}}
+                                </div>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+            </div>
+
         </div>
     </div>
 </div>
@@ -143,66 +208,5 @@
     $(window).trigger('resize');
 </script>
 
-<div class="modal fade" id="staticBackdrop_Chairman" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">{{chairman.name}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12 col-lg-12" style="text-align: center;">
-                <div class="col-md-12 col-lg-12">
-                    <img class="card-img" src="{{chairman.image.url}}" alt="Card image" style="width:50%">
-                </div>
-                <br>
-                <h4>{{chairman.name}}</h4>
-                <h5>{{chairman.post.title}}</h5>
-                {{chairman.introduction | safe}}
-                <br>
-                {% if chairman.link %}
-                    <br>
-                    <a href="{{chairman.link}}" target="_blank">Profile Link</a>
-                {% endif %}
-                <hr>
-                {{chairman.description | safe}}
-            </div>
-            </div>
-    </div>
-    </div>
-</div>
-</div>
 
-<!-- Modal - Secretary -->
-<div class="modal fade" id="staticBackdrop_Secretary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">{{secretary.name}}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-12 col-lg-12" style="text-align: center;">
-                    <div class="col-md-12 col-lg-12">
-                        <img class="card-img" src="{{secretary.image.url}}" alt="Card image" style="width:50%">
-                    </div>
-                    <br>
-                    <h4>{{secretary.name}}</h4>
-                    <h5>{{secretary.post.title}}</h5>
-                    {{secretary.introduction | safe}}
-                    <br>
-                    {% if secretary.link %}
-                        <br>
-                        <a href="{{secretary.link}}" target="_blank">Profile Link</a>
-                    {% endif %}
-                    <br><hr>
-                    {{secretary.description | safe}}
-                </div>
-                </div>
-        </div>
-        </div>
-    </div>
-    </div>
 {% endblock %}
