@@ -1,12 +1,24 @@
 from django.shortcuts import render
 from . import models
+from datetime import datetime
 
 def home(request):
+    today = datetime.now()
     chairman = models.PostBearer.objects.all().filter(post__priority=1).first()
     secretary = models.PostBearer.objects.all().filter(post__priority=2).first()
     carousel_data = models.carousel.objects.all().order_by('-date')
-    announcements = models.Announcement.objects.all().order_by('-updated_at')[:5]
-    return render(request, 'home.html',{'announcements': announcements, 'chairman':chairman, 'secretary':secretary, 'c_data': carousel_data})
+    announcements = models.Announcement.objects.all().order_by('-date')[:5]
+    upcoming_events = models.Event.objects.all().filter(date__gte=today)[:5]
+    past_events = models.Event.objects.all().filter(date__lt=today)[:(5-len(upcoming_events))]
+    context = {
+        'announcements': announcements, 
+        'chairman':chairman, 
+        'secretary':secretary, 
+        'c_data': carousel_data, 
+        'upcoming_events':upcoming_events,
+        'past_events':past_events
+    }
+    return render(request, 'home.html',context)
 
 def about_iste(request):
     return render(request, 'iste/about_iste.html',{})

@@ -7,7 +7,7 @@
 }
 
 .announcements h1 {
-  color: #507bfc;
+  color: #111a2d;
 }
 .copyCenter {
   text-align: center;
@@ -32,11 +32,11 @@
 .newsletter {
   /* background:turquoise; */
   /* border-top:5px solid #2A9489; */
-  border-top: 5px solid #507bfc;
+  border-top: 5px solid #111a2d;
   border-radius: 5px;
   /* color: #2A9489; */
   background-color: rgba(255, 255, 255, 1);
-  color: royalblue;
+  color: #111a2d;
 }
 
 .about_section {
@@ -58,13 +58,13 @@
   text-decoration: none;
 }
 .carousel-item {
-  padding-top: 2vh;
+  
 }
 .carousel-item img {
-  height: 90%;
+  height: 100%;
 }
 .carousel-indicators {
-  margin-bottom: -10px;
+
 }
 
 .h1-text {
