@@ -50,8 +50,8 @@ class Event(models.Model):
 
 class Announcement(models.Model):
   title = models.CharField(max_length=100)
-  description = models.TextField(max_length=5000,blank=True)
-  link = models.URLField(blank=True)
+  file = models.FileField(upload_to='announcement/file/',null = True , blank=True)
+  date = models.DateField(default=timezone.localdate)
 
   created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)

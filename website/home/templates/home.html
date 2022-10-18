@@ -5,58 +5,88 @@
 {% block home_active %}active{% endblock %}
 
 {% block content %} {% load widget_tweaks %}
-<div class="container" style="margin-top: 20px;">
-    <div class="row">
-        <div class="col-md-12 col-lg-8 scr">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    {% for carousel in c_data %}
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{carousel.id}}"
-                        aria-label="Slide"></button>
-                    {% endfor %}
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="{% static 'image/carousel1.jpg'%}" class="d-block w-100" alt="">
-                    </div>
-                    {% for carousel in c_data %}
-                    <div class="carousel-item" data-bs-interval="10000">
-                        <img src="{{carousel.image.url}}" class="d-block w-100" alt="">
-                    </div>
-                    {% endfor %}
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <br>
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="height: 65vh;">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        {% for carousel in c_data %}
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{carousel.id}}"
+            aria-label="Slide"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner" style="height: 65vh">
+        <div class="carousel-item active" data-bs-interval="10000" style="height: 65vh">
+            <img src="{% static 'image/carousel1.jpg'%}" class="d-block w-100" alt="">
         </div>
-        <div class="col-md-12 col-lg-4 announcements">
+        {% for carousel in c_data %}
+        <div class="carousel-item" data-bs-interval="10000" style="height: 65vh">
+            <img src="{{carousel.image.url}}" class="d-block w-100" alt="">
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div style="background-color: #111a2d; color: white;">
+    <marquee style="padding:2px">
+        {% if announcements %}
+            {% for announcement in announcements %}
+                {% if announcement.link %}
+                <a href="{{announcement.link}}" style="text-decoration: none; color: white;">
+                    <strong>{{announcement.title}}</strong>
+                </a> 
+                |
+                {% else %}
+                <strong>{{announcement.title}} |</strong>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </marquee>
+</div>
+<div class="container">
+    <div class="row about_section">
+        <div style="text-align: left;">
+            <h2> Indian Society for Technical Education </h2>
+            <p>
+                The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making
+                Society for the Technical Education System in our country with the motto of Career Development of
+                Teachers and Personality Development of Students and overall development of our Technical Education
+                System. Being the only national organisation of educators in the field of Engineering and Technology,
+                ISTE effectively contributes in various missions of the Union Government. The strength of ISTE is the
+                strong base it has in technical education institutions in the country.
+                ISTE has an Executive Council at National level. It has active membership of more than 128500 technical
+                teachers, 535000 student members, more than 2740 institutional members (including IITs, IISc., NITs and
+                other leading technical institutions), 1414 faculty chapters and 1505 students’ chapters at National
+                level and 19 Sections at State Level .
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6 announcements">
             <div class="container">
                 <h1 class="copyCenter">Announcements</h1>
                 {% if announcements %}
                 {% for announcement in announcements %}
                 <div class="box newsletter">
                     <div class="copyArea">
-                        <p class="text-truncate">
-                            {% if announcement.link %}
-                            <a href="{{announcement.link}}">
+                        <strong>{{announcement.date}}</strong>
+                        <br>
+                        {% if announcement.file %}
+                            <a href="{{announcement.file.url}}" target="_blank">
                                 <strong>{{announcement.title}}</strong>
                             </a>
                             {% else %}
                             <strong>{{announcement.title}}</strong>
-                            {% endif %}
-                            <br>{{announcement.description}}
-                        </p>
+                        {% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -66,12 +96,41 @@
 
             </div>
         </div>
+        <div class="col-md-12 col-lg-6 announcements">
+            <div class="container">
+                <h1 class="copyCenter">Events</h1>
+                {% if upcoming_events or past_events %}
+                    {% if upcoming_events %}
+                        {% for event in upcoming_events %}
+                        <div class="box newsletter">
+                            <div class="copyArea">
+                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <br><strong>{{event.date}}</strong> | {{event.venue}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if past_events %}
+                        {% for event in past_events %}
+                        <div class="box newsletter">
+                            <div class="copyArea">
+                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <br><strong>{{event.date}}</strong> | {{event.venue}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p style="text-align:center">We are planning for exciting events...</p>
+                {% endif %}
+
+            </div>
+        </div>
     </div>
 
-    <!-- <hr class="home-hr1"> -->
     <div class="row about_section">
         <div style="text-align: left;">
-            <h2> Indian Society for Technical Education </h2>
+            <h2> ISTE West Bengal Section </h2>
             <p>
                 The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making
                 Society for the Technical Education System in our country with the motto of Career Development of
@@ -100,7 +159,7 @@
                     <strong>{{chairman.name}}</strong>
                     <p>{{chairman.post.title}}</p>
                     <p class="card-text" style="margin-bottom: 15px ;">
-                        {{chairman.introduction}}
+                        {{chairman.introduction |safe}}
                     </p>
                 </div>
                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Chairman">
@@ -124,7 +183,7 @@
                                     <br>
                                     <h4>{{chairman.name}}</h4>
                                     <h5>{{chairman.post.title}}</h5>
-                                    {{chairman.introduction | safe}}
+                                    {{chairman.introduction |safe}}
                                     <br>
                                     {% if chairman.link %}
                                         <br>
@@ -148,7 +207,7 @@
                     <strong>{{secretary.name}}</strong>
                     <p>{{secretary.post.title}}</p>
                     <p class="card-text" style="margin-bottom: 15px ;">
-                        {{secretary.introduction}}
+                        {{secretary.introduction| safe}}
                     </p>
                 </div>
                 <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_Secretary">
