@@ -36,11 +36,11 @@
     </button>
 </div>
 <div style="background-color: #111a2d; color: white;">
-    <marquee style="padding:2px">
+    <marquee style="padding:2px" onmouseover="this.stop();" onmouseout="this.start();">
         {% if announcements %}
             {% for announcement in announcements %}
-                {% if announcement.link %}
-                <a href="{{announcement.link}}" style="text-decoration: none; color: white;">
+                {% if announcement.file %}
+                <a href="{{announcement.file.url}}" style="text-decoration: none; color: white;">
                     <strong>{{announcement.title}}</strong>
                 </a> 
                 |
@@ -78,8 +78,7 @@
                 {% for announcement in announcements %}
                 <div class="box newsletter">
                     <div class="copyArea">
-                        <strong>{{announcement.date}}</strong>
-                        <br>
+                        <img src="{% static 'image/tnew.gif'%}">
                         {% if announcement.file %}
                             <a href="{{announcement.file.url}}" target="_blank">
                                 <strong>{{announcement.title}}</strong>
@@ -87,6 +86,7 @@
                             {% else %}
                             <strong>{{announcement.title}}</strong>
                         {% endif %}
+                        | (<strong>{{announcement.date}}</strong> )
                     </div>
                 </div>
                 {% endfor %}
@@ -104,6 +104,7 @@
                         {% for event in upcoming_events %}
                         <div class="box newsletter">
                             <div class="copyArea">
+                                <img src="{% static 'image/tnew.gif'%}">
                                 <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
                                 <br><strong>{{event.date}}</strong> | {{event.venue}}
                             </div>

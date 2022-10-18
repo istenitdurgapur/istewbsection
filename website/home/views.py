@@ -41,8 +41,10 @@ def gallery(request):
     return render(request, 'gallery.html',{'images': images}) 
 
 def events(request):
-    events = models.Event.objects.all().order_by('-date')
-    return render(request, 'events.html',{'events': events}) 
+    today = datetime.now()
+    upcoming_events = models.Event.objects.all().filter(date__gte=today)
+    past_events = models.Event.objects.all().filter(date__lt=today)
+    return render(request, 'events.html',{'upcoming_events': upcoming_events, 'past_events':past_events}) 
 
 def team(request):
     members = models.PostBearer.objects.all().order_by('post__priority')
