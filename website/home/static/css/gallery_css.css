@@ -49,7 +49,6 @@
 }
 .lightbox-content img {
   border-radius: 7px;
-  box-shadow: 0 0 3px 0 rgba(225, 225, 225, 0.25);
   width: 100%;
   height: 100%;
   object-fit: contain;
