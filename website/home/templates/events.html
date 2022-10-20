@@ -29,9 +29,9 @@
         <table class="">
             <tr>
                 <th width="10%" style="padding: 5px ;">Date</th>
-                <th width="20%" style="padding: 5px ;">Event</th>
-                <th width="20%" style="padding: 5px ;">Venue</th> 
-                <th width="40%" style="padding: 5px ;">Details</th>
+                <th width="18%" style="padding: 5px ;">Event</th>
+                <th width="18%" style="padding: 5px ;">Venue</th> 
+                <th width="44%" style="padding: 5px ;">Details</th>
                 <th width="10%" style="padding: 5px ;">Resources</th>
             </tr>
             {% if upcoming_events %}
@@ -40,7 +40,7 @@
                     <td style="padding: 10px ;"><img src="{% static 'image/tnew.gif'%}">{{event.date}}</td>
                     <td style="padding: 10px ;">{{event.title}}</td>
                     <td style="padding: 10px ;">{{event.venue}}</td>
-                    <td style="padding: 20px ;" ><details>{{event.description | safe}}<details></td>
+                    <td style="padding: 20px ;" > <details>{{event.description | safe}}</details> </td>
                     <td>
                         {%if event.upload_file1 %}   <a  href="{{event.upload_file1.url}}" target="_blank">
                             {%if event.title_file1 %} {{event.title_file1}} {% else %} Document {% endif %} </a>
@@ -71,7 +71,7 @@
                 <td style="padding: 10px ;">{{event.date}}</td>
                 <td style="padding: 10px ;">{{event.title}}</td>
                 <td style="padding: 10px ;">{{event.venue}}</td>
-                <td style="padding: 20px ;" ><details>{{event.description | safe}}<details></td>
+                <td style="padding: 20px ;" ><details>{{event.description | safe}}</details></td>
                 <td>
                     {%if event.upload_file1 %}   <a  href="{{event.upload_file1.url}}" target="_blank">
                         {%if event.title_file1 %} {{event.title_file1}} {% else %} Document {% endif %} </a>
