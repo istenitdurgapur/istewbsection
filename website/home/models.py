@@ -1,5 +1,8 @@
+from email.policy import default
+from enum import unique
 from django.db import models
 from django.utils import timezone
+from .utils import unique_slug_generator
 
 class Gallery(models.Model):
   title = models.CharField(max_length=100)
@@ -27,6 +30,8 @@ class Event(models.Model):
   date = models.DateTimeField(default=timezone.now)
   venue = models.CharField(max_length=100, default='Online')
   description = models.TextField(max_length=5000,blank=True)
+  image=models.ImageField(upload_to='events/', null=True, blank=True)
+  slug = models.SlugField(max_length = 250, null = True, blank = True, unique=True)
   
   title_link1 = models.CharField(max_length=200, default='', blank=True)
   url_link1 = models.URLField(blank=True)
@@ -36,17 +41,22 @@ class Event(models.Model):
   url_link3 = models.URLField(blank=True)
   
   title_file1 = models.CharField(max_length=200, default='', blank=True)
-  upload_file1 = models.FileField(upload_to='doc/',null = True , blank=True)
+  upload_file1 = models.FileField(upload_to='events/',null = True , blank=True)
   title_file2 = models.CharField(max_length=200, default='', blank=True)
-  upload_file2 = models.FileField(upload_to='doc/',null = True , blank=True)
+  upload_file2 = models.FileField(upload_to='events/',null = True , blank=True)
   title_file3 = models.CharField(max_length=200, default='', blank=True)
-  upload_file3 = models.FileField(upload_to='doc/',null = True , blank=True)
+  upload_file3 = models.FileField(upload_to='events/',null = True , blank=True)
 
   created_at = models.DateTimeField(auto_now=False, auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True, auto_now_add=False)
   
   def __str__(self):
          return self.title
+
+  def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = unique_slug_generator(self)
+        return super().save(*args, **kwargs)
 
 class Announcement(models.Model):
   title = models.CharField(max_length=100)
