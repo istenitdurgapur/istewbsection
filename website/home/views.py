@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import models
 from datetime import datetime
+from django.urls import reverse_lazy
 
 def home(request):
     today = datetime.now()
@@ -44,7 +45,15 @@ def events(request):
     today = datetime.now()
     upcoming_events = models.Event.objects.all().filter(date__gte=today)
     past_events = models.Event.objects.all().filter(date__lt=today)
-    return render(request, 'events.html',{'upcoming_events': upcoming_events, 'past_events':past_events}) 
+    return render(request, 'events.html',{'upcoming_events': upcoming_events, 'past_events':past_events})
+
+def event_detail(request, slug):
+    q = models.Event.objects.filter(slug__iexact = slug)
+    if q.exists():
+        q = q.first()
+    else:
+        return reverse_lazy('events')
+    return render(request, 'event_details.html', {'event': q})
 
 def team(request):
     members = models.PostBearer.objects.all().order_by('post__priority')
