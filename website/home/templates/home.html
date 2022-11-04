@@ -54,101 +54,11 @@
 <div class="container">
     <div class="row about_section">
         <div style="text-align: left;">
-            <h2> Indian Society for Technical Education </h2>
+            <h2> Welcome to the Website of ISTE West Bengal Section…! </h2>
             <p>
-                The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making
-                Society for the Technical Education System in our country with the motto of Career Development of
-                Teachers and Personality Development of Students and overall development of our Technical Education
-                System. Being the only national organisation of educators in the field of Engineering and Technology,
-                ISTE effectively contributes in various missions of the Union Government. The strength of ISTE is the
-                strong base it has in technical education institutions in the country.
-                ISTE has an Executive Council at National level. It has active membership of more than 128500 technical
-                teachers, 535000 student members, more than 2740 institutional members (including IITs, IISc., NITs and
-                other leading technical institutions), 1414 faculty chapters and 1505 students’ chapters at National
-                level and 19 Sections at State Level .
-            </p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 col-lg-6 announcements">
-            <div style="height: 20%;padding: 0 20px;margin-bottom: 30px;" >
-                <h1 class="copyCenter">Announcements</h1>
-                <div class="announcementHeaderLine"></div>
-            </div>
-            <div class="container">
-                {% if announcements %}
-                {% for announcement in announcements %}
-                <div class="box newsletter">
-                    <div class="copyArea">
-                        <img src="{% static 'image/tnew.gif'%}">
-                        {% if announcement.file %}
-                            <a href="{{announcement.file.url}}" target="_blank">
-                                <strong>{{announcement.title}}</strong>
-                            </a>
-                            {% else %}
-                            <strong>{{announcement.title}}</strong>
-                        {% endif %}
-                        | (<strong>{{announcement.date}}</strong> )
-                    </div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <p style="text-align:center">New announcements to be released soon...</p>
-                {% endif %}
-
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-6 announcements eventsBoard">
-            <div style="height: 20%;padding: 0 20px;margin-bottom: 30px;" >
-                <h1 class="copyCenter">Events</h1>
-                <div class="announcementHeaderLine"></div>
-            </div>
-            <div class="container">
-                {% if upcoming_events or past_events %}
-                    {% if upcoming_events %}
-                        {% for event in upcoming_events %}
-                        <div class="box newsletter">
-                            <div class="copyArea">
-                                <img src="{% static 'image/tnew.gif'%}">
-                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
-                                <br><strong>{{event.date}}</strong> | {{event.venue}}
-                            </div>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                    {% if past_events %}
-                        {% for event in past_events %}
-                        <div class="box newsletter">
-                            <div class="copyArea">
-                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
-                                <br><strong>{{event.date}}</strong> | {{event.venue}}
-                            </div>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                {% else %}
-                    <p style="text-align:center">We are planning for exciting events...</p>
-                {% endif %}
-
-            </div>
-        </div>
-    </div>
-
-    <div class="row about_section">
-        <div style="text-align: left;">
-            <h2> ISTE West Bengal Section </h2>
-            <p>
-                The Indian Society for Technical Education (ISTE) is the leading National Professional non-profit making
-                Society for the Technical Education System in our country with the motto of Career Development of
-                Teachers and Personality Development of Students and overall development of our Technical Education
-                System. Being the only national organisation of educators in the field of Engineering and Technology,
-                ISTE effectively contributes in various missions of the Union Government. The strength of ISTE is the
-                strong base it has in technical education institutions in the country.
-                ISTE has an Executive Council at National level. It has active membership of more than 128500 technical
-                teachers, 535000 student members, more than 2740 institutional members (including IITs, IISc., NITs and
-                other leading technical institutions), 1414 faculty chapters and 1505 students’ chapters at National
-                level and 19 Sections at State Level .
+                It is an honour and a source of pleasure to note that the ISTE WB section and ISTE chapters in West Bengal are consistently involved in promoting and enhancing the quality and esteem of technical education. The section and chapters routinely conduct technical events such as symposiums, seminars, technical presentations, site visits, exhibitions, etc. Some of the chapter performances are truly outstanding. The Section sponsors yearly conventions with state-level faculty chapter seminars and conferences.
+                <br><br>
+                The ISTE West Bengal Section encourages its member institutes to conduct faculty development programs for teachers of technical education imparting institutes/colleges. In addition to obtaining financing help from ISTE New Delhi, the institutions self-finance the courses. Through the ISTE Headquarters, the Section offers financial support to hosting institutions for the organization of Annual State Conventions for faculty and student members.
             </p>
         </div>
     </div>
@@ -255,6 +165,73 @@
                     
             </div>
 
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-6 announcements">
+            <div style="height: 20%;padding: 0 20px;margin-bottom: 30px;" >
+                <h1 class="copyCenter">Announcements</h1>
+                <div class="announcementHeaderLine"></div>
+            </div>
+            <div class="container">
+                {% if announcements %}
+                {% for announcement in announcements %}
+                <div class="box newsletter">
+                    <div class="copyArea">
+                        <img src="{% static 'image/tnew.gif'%}">
+                        {% if announcement.file %}
+                            <a href="{{announcement.file.url}}" target="_blank">
+                                <strong>{{announcement.title}}</strong>
+                            </a>
+                            {% else %}
+                            <strong>{{announcement.title}}</strong>
+                        {% endif %}
+                        | (<strong>{{announcement.date}}</strong> )
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p style="text-align:center">New announcements to be released soon...</p>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 announcements eventsBoard">
+            <div style="height: 20%;padding: 0 20px;margin-bottom: 30px;" >
+                <h1 class="copyCenter">Events</h1>
+                <div class="announcementHeaderLine"></div>
+            </div>
+            <div class="container">
+                {% if upcoming_events or past_events %}
+                    {% if upcoming_events %}
+                        {% for event in upcoming_events %}
+                        <div class="box newsletter">
+                            <div class="copyArea">
+                                <img src="{% static 'image/tnew.gif'%}">
+                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <br><strong>{{event.date}}</strong> | {{event.venue}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if past_events %}
+                        {% for event in past_events %}
+                        <div class="box newsletter">
+                            <div class="copyArea">
+                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <br><strong>{{event.date}}</strong> | {{event.venue}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p style="text-align:center">We are planning for exciting events...</p>
+                {% endif %}
+
+            </div>
         </div>
     </div>
 </div>
