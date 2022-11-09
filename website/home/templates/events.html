@@ -4,19 +4,32 @@
 
 {% block events %}active{% endblock %}
 
-{% block css %} 
+{% block css %}
 <style>
-    table, th, td {
-        border: 2px solid black;
-        border-collapse: collapse;
+    .eventPageHr {
+        margin-top: 24px;
+        height: 2px;
+        margin-left: auto;
+        margin-right: auto;
     }
+
     @media (max-width: 476px) {
-        td{
-            font-size: 12px;
+        .eventPageImage img {
+            max-width: 90%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 18px;
+        }
+
+        .eventPageDescription {
+            padding: 0 9%;
+        }
+
+        .eventPageHr {
+            width: 90%;
         }
     }
-
-
 </style>
 {% endblock %}
 
@@ -25,56 +38,58 @@
 <br>
 <h1 style="text-align:center;">EVENTS</h1>
 <br>
-<div class="container" style="padding: 0 ;">
+<div class="container">
     {% if upcoming_events or past_events %}
-        {% if upcoming_events %}
-            {% for event in upcoming_events %}
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    {% if event.image %}
-                        <img src="{{event.image.url}}"  style="width: 100%;">
-                    {% else %}
-                        <img src="{% static 'image/logo.png'%}"  style="width: 100%;">
-                    {% endif %}
-                </div>
-                <div class="col-lg-10 col-md-8 col-sm-12">
-                    <h3><a href="{% url 'home:event-detail' event.slug %}" style="text-decoration:none; color: #163269;">{{event.title}}</a></h3>
-                    <img src="{% static 'image/tnew.gif'%}">
-                    <i class="fa fa-calendar"> </i> {{event.date}} | <i class="fa fa-map-marker"> </i> {{event.venue}}
-                    <br><br>
-                    {{event.description | safe | truncatechars:200}} 
-                    <a href="{% url 'home:event-detail' event.slug %}"> Continue Reading</a>
-                </div>
-                <hr>
-            </div>
-            {% endfor %}
-        {% endif %}
-        {% if past_events %}
-            {% for event in past_events %}
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-12">
-                    {% if event.image %}
-                        <img src="{{event.image.url}}" style="width: 100%;">
-                    {% else %}
-                        <img src="{% static 'image/logo.png'%}"  style="width: 100%;">
-                    {% endif %}
-                </div>
-                <div class="col-lg-10 col-md-8 col-sm-12">
-                    <h3><a href="{% url 'home:event-detail' event.slug %}" style="text-decoration:none; color: #163269;">{{event.title}}</a></h3>
-                    <i class="fa fa-calendar"> </i> {{event.date}} | <i class="fa fa-map-marker"> </i> {{event.venue}}
-                    <br><br>
-                    {{event.description | safe | truncatechars:200}} 
-                    <a href="{% url 'home:event-detail' event.slug %}"> Continue Reading</a>
-                </div>
-                <hr>
-            </div>
-            {% endfor %}
-        {% endif %}
+    {% if upcoming_events %}
+    {% for event in upcoming_events %}
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-12 eventPageImage">
+            {% if event.image %}
+            <img src="{{event.image.url}}" style="width: 100%;">
+            {% else %}
+            <img src="{% static 'image/logo.png'%}" style="width: 100%;">
+            {% endif %}
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-12 eventPageDescription">
+            <h3><a href="{% url 'home:event-detail' event.slug %}"
+                    style="text-decoration:none; color: #163269;">{{event.title}}</a></h3>
+            <img src="{% static 'image/tnew.gif'%}">
+            <i class="fa fa-calendar"> </i> {{event.date}} | <i class="fa fa-map-marker"> </i> {{event.venue}}
+            <br><br>
+            {{event.description | safe | truncatechars:200}}
+            <a href="{% url 'home:event-detail' event.slug %}"> Continue Reading</a>
+        </div>
+        <hr class="eventPageHr">
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% if past_events %}
+    {% for event in past_events %}
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-12 eventPageImage">
+            {% if event.image %}
+            <img src="{{event.image.url}}" style="width: 100%;">
+            {% else %}
+            <img src="{% static 'image/logo.png'%}" style="width: 100%;">
+            {% endif %}
+        </div>
+        <div class="col-lg-10 col-md-8 col-sm-12 eventPageDescription">
+            <h3><a href="{% url 'home:event-detail' event.slug %}"
+                    style="text-decoration:none; color: #163269;">{{event.title}}</a></h3>
+            <i class="fa fa-calendar"> </i> {{event.date}} | <i class="fa fa-map-marker"> </i> {{event.venue}}
+            <br><br>
+            {{event.description | safe | truncatechars:200}}
+            <a href="{% url 'home:event-detail' event.slug %}"> Continue Reading</a>
+        </div>
+        <hr class="eventPageHr">
+    </div>
+    {% endfor %}
+    {% endif %}
     {% else %}
-        <br>
-        <p style="text-align: center;">
+    <br>
+    <p style="text-align: center;">
         Stay tuned for latest updates!!
-        </p>
+    </p>
     {% endif %}
 </div>
 {% endblock %}
