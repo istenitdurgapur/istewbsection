@@ -59,6 +59,10 @@ def team(request):
     members = models.PostBearer.objects.all().order_by('post__priority')
     return render(request, 'team.html',{'members':members})
 
+def executiveCouncil(request):
+    members = models.PostBearer.objects.all().order_by('post__priority')
+    return render(request, 'executive_council.html',{'members':members})
+
 def contact(request):
     contact = models.Contact.objects.all().first()
     return render(request, 'contact-us.html',{'contact':contact})

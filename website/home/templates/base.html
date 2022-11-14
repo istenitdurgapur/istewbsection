@@ -134,9 +134,14 @@
                         <a class="nav-link m-2 {% block gallery %}{% endblock %} "
                             href="{% url 'home:gallery' %}">Gallery</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link m-2 {% block team %}{% endblock %}"
-                            href="{% url 'home:team' %}">Committee</a>
+                    <li class="nav-item dropdown m-2">
+                        <a class="nav-link dropdown-toggle tab {% block team %}{% endblock %}" href="#"
+                            role="button" data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu ml-2"
+                            style="padding: 2px; background-color: #111a2d; text-align: center;">
+                            <li><a class="dropdown-item" href="{% url 'home:team' %}">Section Managing Committee</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:executive-council' %}">Executive Council Member</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link m-2 {% block contact %}{% endblock %}"
