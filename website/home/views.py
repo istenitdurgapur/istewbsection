@@ -43,8 +43,8 @@ def gallery(request):
 
 def events(request):
     today = datetime.now()
-    upcoming_events = models.Event.objects.all().filter(date__gte=today)
-    past_events = models.Event.objects.all().filter(date__lt=today)
+    upcoming_events = models.Event.objects.all().filter(date__gte=today).order_by('-date')
+    past_events = models.Event.objects.all().filter(date__lt=today).order_by('-date')
     return render(request, 'events.html',{'upcoming_events': upcoming_events, 'past_events':past_events})
 
 def event_detail(request, slug):

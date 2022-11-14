@@ -42,10 +42,10 @@
         <br>
         {% endif %}
     </div>
-    <h4>Resources:</h4>
     <div class="eventFiles">
-        <br>
         {%if event.upload_file1 %}
+        <h4>Resources:</h4>
+        <br>
         <h4>
             <a href="{{event.upload_file1.url}}" target="_blank">
                 {%if event.title_file1 %} {{event.title_file1}} {% else %} Document {% endif %}
@@ -79,8 +79,8 @@
     </div>
     <br>
     <div class="eventResources">
-        <h4>Links :</h4>
         {% if event.url_link1 or event.url_link2 or event.url_link3 %}
+        <h4>Links :</h4>
         <h4 style="text-decoration: none;">
             {%if event.url_link1 %} <a href="{{event.url_link1}}" target="_blank">
                 {%if event.title_link1 %} {{event.title_link1}} {% else %} Link {% endif %} </a>
