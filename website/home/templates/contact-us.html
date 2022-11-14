@@ -29,15 +29,6 @@
         <!--Buttons-->
         <div class="col-lg-5 col-md-12">
             <br>
-            <div class="row">
-                <div class="col-lg-3 col-md-4">
-                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
-                            class="fa fa-map-marker"></i></a>
-                </div>
-                <div class="col-lg-9 col-md-8">
-                    <p> {{contact.location | safe}}</p>
-                </div>
-            </div>
             <br>
             <div class="row">
                 <div class="col-lg-3 col-md-4">
@@ -45,10 +36,9 @@
                             class="fa fa-phone"></i></a>
                 </div>
                 <div class="col-lg-9 col-md-8">
-                    <p>{{contact.phone1}} <br> {{contact.phone2}} </p>
+                    <p><strong>{{contact.name}}</strong><br>{{contact.phone1}} <br> {{contact.phone2}} </p>
                 </div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-lg-3 col-md-4">
                     <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
@@ -56,6 +46,16 @@
                 </div>
                 <div class="col-lg-9 col-md-8">
                     <p>{{contact.email}}</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
+                            class="fa fa-map-marker"></i></a>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <p> {{contact.location | safe}}</p>
                 </div>
             </div>
         </div>

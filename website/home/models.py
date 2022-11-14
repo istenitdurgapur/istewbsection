@@ -92,7 +92,7 @@ class Post(models.Model):
 class PostBearer(models.Model):
   name = models.CharField(max_length=100)
   post = models.ForeignKey('Post', null=True, on_delete=models.CASCADE)
-  image = models.ImageField(upload_to='images/PostBearer',null = True, blank=True)
+  image = models.ImageField(upload_to='images/PostBearer',null = True)
   introduction = models.TextField(max_length=200,default=" ", blank=True, null=True)
   description = models.TextField(max_length=5000,default=" ", blank=True, null=True)
   link = models.URLField(null=True, blank=True, default='')

@@ -33,17 +33,17 @@
         <div class="col-lg-2 col-md-4 col-sm-6 committee-img" style="margin-top: 10px;">
             <img src="{{member.image.url}}" alt="{{member.name}}" style="width:100%; border: 0.5px solid black;">
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 committee-cardbody">
+        <div class="col-lg-4 col-md-6 col-sm-12 committee-cardbody">
             <br>
             <h5>{{member.name}}</h5>
             <h6>{{member.post.title}}</h6>
-            <h6>{{member.introduction}}</h6>
+            <h6>{{member.introduction | safe}}</h6>
             {% if member.link %}
             <h6><a href="{{member.link}}" target="_blank">Know More</a></h6>
             {% endif %}
         </div>
-        <div class="col-lg-1 col-md-12">
-        </div>
+        <!-- <div class="col-lg-1 col-md-12">
+        </div> -->
         {% endfor %}
     </div>
 </div>
