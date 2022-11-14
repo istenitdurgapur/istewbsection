@@ -17,7 +17,8 @@ urlpatterns = [
     path('code-of-conduct/', views.code_of_conduct, name='code-of-conduct'),
     path('objective/', views.objective, name='objective'),
     path('about-section/', views.about_section, name='about-section'),
-    path('section-student-chapters/', views.chapters, name='chapters'),
+    path('section-student-chapters/', views.student_chapters, name='student-chapters'),
+    path('section-faculty-chapters/', views.faculty_chapters, name='faculty-chapters'),
 
     # Join ISTE
     path('establish-chapter/', views.establish_chapter, name='establish-chapter'),

@@ -103,7 +103,7 @@ class PostBearer(models.Model):
   def __str__(self):
          return "P " + str(self.post.priority) + " - " + str(self.post.title) + " - " + self.name
 
-class Chapter(models.Model):
+class StudentChapter(models.Model):
   name = models.CharField(max_length=100)
   chapter_code = models.CharField(max_length=100)
   college = models.CharField(max_length=100)
@@ -113,3 +113,12 @@ class Chapter(models.Model):
   def __str__(self):
     return str(self.chapter_code) + " - " + str(self.name)
 
+class FacultyChapter(models.Model):
+  name = models.CharField(max_length=100)
+  chapter_code = models.CharField(max_length=100)
+  college = models.CharField(max_length=100)
+  address = models.TextField(max_length=500)
+  email = models.EmailField()
+
+  def __str__(self):
+    return str(self.chapter_code) + " - " + str(self.name)
