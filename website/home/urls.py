@@ -10,6 +10,7 @@ urlpatterns = [
     path('events/detail/<slug:slug>/', views.event_detail, name='event-detail'),
     path('contact-us/', views.contact, name='contact'),
     path('committee/', views.team, name='team'),
+    path('executive-council/', views.executiveCouncil, name='executive-council'),
 
     # About Us
     path('about-iste/', views.about_iste, name='about-iste'),
