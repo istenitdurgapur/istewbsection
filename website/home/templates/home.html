@@ -16,7 +16,7 @@
     </div>
     <div class="carousel-inner carouselHeight" >
         <div class="carousel-item active carouselHeight" data-bs-interval="10000" >
-            <img src="{% static 'image/carousel1.jpg'%}" class="d-block w-100" alt="">
+            <img src="{% static 'image/carousel.jpg'%}" class="d-block w-100" alt="">
         </div>
         {% for carousel in c_data %}
         <div class="carousel-item carouselHeight" data-bs-interval="10000" >
@@ -211,7 +211,7 @@
                         <div class="box newsletter">
                             <div class="copyArea">
                                 <img src="{% static 'image/tnew.gif'%}">
-                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <a href="{% url 'home:event-detail' event.slug %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
                                 <br><strong>{{event.date}}</strong> | {{event.venue}}
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                         {% for event in past_events %}
                         <div class="box newsletter">
                             <div class="copyArea">
-                                <a href="{% url 'home:events' %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
+                                <a href="{% url 'home:event-detail' event.slug %}" style="text-decoration:none"><strong>{{event.title}}</strong></a>
                                 <br><strong>{{event.date}}</strong> | {{event.venue}}
                             </div>
                         </div>
