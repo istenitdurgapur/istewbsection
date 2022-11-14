@@ -9,8 +9,8 @@ def home(request):
     secretary = models.PostBearer.objects.all().filter(post__priority=2).first()
     carousel_data = models.carousel.objects.all().order_by('-date')
     announcements = models.Announcement.objects.all().order_by('-date')[:5]
-    upcoming_events = models.Event.objects.all().filter(date__gte=today)[:5]
-    past_events = models.Event.objects.all().filter(date__lt=today)[:(5-len(upcoming_events))]
+    upcoming_events = models.Event.objects.all().filter(date__gte=today).order_by('-date')[:5]
+    past_events = models.Event.objects.all().filter(date__lt=today).order_by('-date')[:(5-len(upcoming_events))]
     context = {
         'announcements': announcements, 
         'chairman':chairman, 
