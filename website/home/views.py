@@ -33,9 +33,13 @@ def code_of_conduct(request):
 def objective(request):
     return render(request, 'iste/objective.html',{})
 
-def chapters(request):
-    chapters = models.Chapter.objects.all()
-    return render(request, 'section/chapters.html',{'chapters':chapters})
+def student_chapters(request):
+    chapters = models.StudentChapter.objects.all()
+    return render(request, 'section/student_chapters.html',{'chapters':chapters})
+
+def faculty_chapters(request):
+    chapters = models.FacultyChapter.objects.all()
+    return render(request, 'section/faculty_chapters.html',{'chapters':chapters})
 
 def gallery(request):
     images = models.Gallery.objects.all().order_by('-date')
