@@ -73,14 +73,13 @@
   text-decoration: none;
 }
 
-.carouselHeight{
-  height: 65vh;
-}
-.carousel-item img {
-  height: 100%;
-}
 .carousel-indicators {
   color: white;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
 }
 
 .h1-text {
@@ -127,6 +126,32 @@
   margin: 20px 60px;
   position: relative;
   border-radius: 10px;
+}
+
+/* Fix image sizing */
+.team-box .content img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;      /* prevents stretching */
+  display: block;
+  margin: 0 auto 15px;
+}
+
+/* Keep text centered properly */
+.team-box strong {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.team-box p {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* Push button to bottom */
+.team-box button {
+  margin-top: auto;
 }
 
 .top-bar {
@@ -180,9 +205,6 @@
   .about_section h2{
     text-align: left;
     font-size: 21px;
-  }
-  .carouselHeight{
-    height: 40vh;
   }
 }
 

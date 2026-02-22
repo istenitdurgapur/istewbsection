@@ -5,7 +5,7 @@
 {% block home_active %}active{% endblock %}
 
 {% block content %} {% load widget_tweaks %}
-<div id="carouselExampleDark" class="carousel carousel-dark slide carouselHeight" data-bs-ride="carousel">
+<div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
@@ -14,12 +14,12 @@
             aria-label="Slide"></button>
         {% endfor %}
     </div>
-    <div class="carousel-inner carouselHeight" >
-        <div class="carousel-item active carouselHeight" data-bs-interval="10000" >
+    <div class="carousel-inner" >
+        <div class="carousel-item active" data-bs-interval="10000" >
             <img src="{% static 'image/carousel.jpg'%}" class="d-block w-100" alt="">
         </div>
         {% for carousel in c_data %}
-        <div class="carousel-item carouselHeight" data-bs-interval="10000" >
+        <div class="carousel-item" data-bs-interval="10000" >
             <img src="{{carousel.image.url}}" class="d-block w-100" alt="">
         </div>
         {% endfor %}
